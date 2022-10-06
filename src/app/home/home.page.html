@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div style="border-bottom: 1px solid gray;padding-top: 3%;">
+    <ion-label style="margin: 2%;">Parent Component</ion-label>
+    <ion-item fill="outline" style="margin: 2%;">
+      <ion-label position="floating">Enter Something</ion-label>
+      <ion-input [(ngModel)]="dummyData"></ion-input>
+    </ion-item>
+    <!-- <ion-label style="margin:2%;">{{sharedData}}</ion-label> -->
+    <!-- <ion-label>{{secondChildData}}</ion-label>
+    <ion-label>{{firstChildData}}</ion-label> -->
+    <ion-button fill="outline" (click)="addToFirst()">Add To First Child</ion-button>
+    <ion-button fill="outline" (click)="addToSecond()">Add To second Child</ion-button>
+  </div>
+
+  <div style="border-bottom: 1px solid gray;padding: 2%;">
+    <app-first-child [parentData]="firstData" (firstChildEvent)="firstChildEventHandler($event)"></app-first-child>
+  </div>
+
+  <div style="border-bottom: 1px solid gray;padding: 2%;">
+    <app-second-child (secondChildEvent)="secondChildEvent($event)" [parentData]="secondData"></app-second-child>
+  </div>
+</ion-content>
